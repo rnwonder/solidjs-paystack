@@ -5,7 +5,10 @@
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rnwonder/solidjs-paystack"
+    "url": "https://github.com/rnwonder/solidjs-paystack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rnwonder/solidjs-paystack/issues"
   },
   "keywords": [
     "paystack",
