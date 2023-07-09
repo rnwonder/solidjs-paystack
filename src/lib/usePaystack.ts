@@ -1,9 +1,9 @@
 import { createSignal } from "solid-js";
-import {PaystackProps} from "../interface";
+import {PaystackProps, PaystackSuccessResponse} from "../interface";
 import usePaystackScript from "./usePaystackScript";
 import {openPopup} from "./openPopup";
 
-type cb = (response?: any) => void;
+type cb = (response?: PaystackSuccessResponse) => void;
 
 export const usePaystack = () => {
   const [config, setConfig] = createSignal<PaystackProps>({} as PaystackProps);
