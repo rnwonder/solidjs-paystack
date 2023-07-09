@@ -1,6 +1,6 @@
 {
   "name": "solidjs-paystack",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Paystack payment gateway for SolidJS",
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
   "repository": {
