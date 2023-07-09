@@ -1,15 +1,15 @@
 import { createSignal } from "solid-js";
-import {PaystackProps, PaystackSuccessResponse} from "../interface";
+import { PaystackProps, PaystackSuccessResponse } from "../interface";
 import usePaystackScript from "./usePaystackScript";
-import {openPopup} from "./openPopup";
+import { openPopup } from "./openPopup";
 
-type cb = (response?: PaystackSuccessResponse) => void;
+type cb = (response: PaystackSuccessResponse) => void;
 
 export const usePaystack = () => {
   const [config, setConfig] = createSignal<PaystackProps>({} as PaystackProps);
   const scriptState = usePaystackScript();
 
-  function initializePayment(callback?: cb, onClose?: cb) {
+  function initializePayment(onSuccess?: cb, onCancel?: () => void) {
     if (scriptState().error) {
       throw new Error("Unable to load paystack inline script");
     }
@@ -18,8 +18,8 @@ export const usePaystack = () => {
       const paystackConfig = {
         ...config(),
         key: config().publicKey,
-        onSuccess: callback ? callback : () => null,
-        onCancel: onClose ? onClose : () => null,
+        onSuccess: onSuccess ? onSuccess : () => null,
+        onCancel: onCancel ? onCancel : () => null,
       };
       openPopup(paystackConfig);
     }
