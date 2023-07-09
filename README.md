@@ -1,34 +1,81 @@
-## Usage
+# Solidjs-Paystack
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+This is a solidjs library for implementing paystack payment gateway
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+This is inspired by [react-paystack](https://github.com/iamraphson/react-paystack)
 
-```bash
-$ npm install # or pnpm install or yarn install
+## Get Started
+
+### Install
+
+```sh
+npm install react-paystack --save
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+```sh
+yarn add react-paystack
+```
 
-## Available Scripts
+```sh
+pnpm add react-paystack
+```
 
-In the project directory, you can run:
+### Usage
 
-### `npm run dev` or `npm start`
+```javascript
+  import { usePaystack } from "solidjs-paystack";
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  
+  const config = {
+      ref: (new Date()).getTime().toString(),
+      email: "user@example.com",
+      amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+      publicKey: 'pk_test_dsdfghuytfd2345678gvxxxxxxxxxx',
+  };
+  
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+  };
 
-The page will reload if you make edits.<br>
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log('closed')
+  }
 
-### `npm run build`
+  const PaystackHookExample = () => {
+      const { initializePayment, setConfig }= usePaystack();
+	  setConfig(config)
+	  
+      return (
+        <div>
+            <button onClick={() => {
+                initializePayment(onSuccess, onClose)
+            }}>Paystack Hooks Implementation</button>
+        </div>
+      );
+  };
+ 
+```
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Please checkout [Paystack Documentation](https://developers.paystack.co/docs/paystack-inline) for other available options you can add to the tag
 
 ## Deployment
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+REMEMBER TO CHANGE THE KEY WHEN DEPLOYING ON A LIVE/PRODUCTION SYSTEM
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Some commit message'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request 😉😉
+
+## How can I thank you?
+
+Why not star the github repo? I'd love the attention! Why not share the link for this repository on Twitter or Any Social Media? Spread the word!
+
+Don't forget to [follow me on twitter](https://twitter.com/Rnwonder101)!

@@ -1,5 +1,5 @@
 {
-  "name": "@rnwonder/solidjs-paystack",
+  "name": "solidjs-paystack",
   "version": "0.1.2",
   "description": "Paystack payment gateway for SolidJS",
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
@@ -43,7 +43,6 @@
     "start": "vite",
     "dev": "vite",
     "build": "rollup -c ./rollup.config.js",
-    "publish": "npm publish",
     "test": "exit 0"
   },
   "license": "MIT",
