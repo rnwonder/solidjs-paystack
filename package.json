@@ -1,6 +1,6 @@
 {
   "name": "@rnwonder/solidjs-paystack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Paystack payment gateway for SolidJS",
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
   "repository": {
@@ -47,7 +47,7 @@
     "test": "exit 0"
   },
   "license": "MIT",
-  "author": "Matthew Ruona",
+  "author": "rnwonder",
   "devDependencies": {
     "rollup": "^3.26.2",
     "rollup-plugin-postcss": "^4.0.2",
@@ -63,5 +63,6 @@
   "publishConfig": {
     "@rnwonder:registry": "https://npm.pkg.github.com",
     "access": "public"
-  }
+  },
+  "private": false
 }
