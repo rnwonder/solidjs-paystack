@@ -1,6 +1,6 @@
 {
   "name": "solidjs-paystack",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Paystack payment gateway for SolidJS",
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
   "repository": {
@@ -23,7 +23,7 @@
   "source": "./src/index.ts",
   "types": "./dist/index/index.d.ts",
   "module": "./dist/index/index.js",
-  "main": "./dist/index/index.js",
+  "main": "./dist/index/index.common.js",
   "files": [
     "dist"
   ],
@@ -31,11 +31,11 @@
     ".": {
       "types": "./dist/index/index.d.ts",
       "import": "./dist/index/index.js",
-      "require": "./dist/index/index.js",
+      "require": "./dist/index/index.common.js",
       "node": "./dist/index/index.js",
       "browser": {
         "import": "./dist/index/index.js",
-        "require": "./dist/index/index.js"
+        "require": "./dist/index/index.common.js"
       }
     }
   },
