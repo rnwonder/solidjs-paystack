@@ -9,15 +9,15 @@ This is inspired by [react-paystack](https://github.com/iamraphson/react-paystac
 ### Install
 
 ```sh
-npm install react-paystack --save
+npm install solidjs-paystack --save
 ```
 
 ```sh
-yarn add react-paystack
+yarn add solidjs-paystack
 ```
 
 ```sh
-pnpm add react-paystack
+pnpm add solidjs-paystack
 ```
 
 ### Usage
