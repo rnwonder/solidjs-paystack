@@ -7,7 +7,7 @@ export interface PaystackProps {
   amount: number;
   ref?: string;
   metadata?: PaystackMetadata;
-  currency?: "NGN" | "GHS" | "USD" | "ZAR";
+  currency?: "NGN" | "GHS" | "USD" | "ZAR" | string;
   channels?: PaymentChannels[];
   label?: string;
   plan?: string;
@@ -15,23 +15,38 @@ export interface PaystackProps {
   subaccount?: string;
   transaction_charge?: number;
   bearer?: Bearer;
-  "data-custom-button"?: string;
   split_code?: string;
   split?: Record<string, any>;
 }
 
-type PaymentChannels = "bank" | "card" | "qr" | "ussd" | "mobile_money";
+type PaymentChannels =
+  | "bank"
+  | "card"
+  | "qr"
+  | "ussd"
+  | "mobile_money"
+  | "bank_transfer"
+  | string;
 
-type Bearer = "account" | "subaccount";
+type Bearer = "account" | "subaccount" | string;
 
 interface PaystackMetadata {
-  custom_fields: PaystackCustomFields[];
+  custom_fields?: PaystackCustomFields[];
+  cancel_action?: string;
+  custom_filters?: PaystackCustomFilter;
+  [key: string]: any;
+}
+
+interface PaystackCustomFilter {
+  recurring?: boolean;
+  banks?: string[];
+  card_brands?: Array<"visa" | "verve" | "master" | string>;
 }
 
 interface PaystackCustomFields {
-  display_name: string;
-  variable_name: string;
-  value: any;
+  display_name?: string;
+  variable_name?: string;
+  value?: any;
 }
 
 export interface PaystackSuccessResponse {

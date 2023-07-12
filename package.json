@@ -1,6 +1,6 @@
 {
   "name": "solidjs-paystack",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Paystack payment gateway for SolidJS",
   "homepage": "https://github.com/rnwonder/solidjs-paystack",
   "repository": {
@@ -43,7 +43,8 @@
     "start": "vite",
     "dev": "vite",
     "build": "rollup -c ./rollup.config.js",
-    "test": "exit 0"
+    "test": "exit 0",
+    "lib": "pnpm build && npm publish"
   },
   "license": "MIT",
   "author": "rnwonder",

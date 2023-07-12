@@ -8,21 +8,32 @@ const App: Component = () => {
   setConfig({
     publicKey: getEnv("VITE_PAYSTACK_PUBLIC_KEY"),
     email: "solidjs-paystack@yopmail.com",
-    amount: 500000,
+    amount: 200000,
+    metadata: {
+      userId: "my cool id",
+      cancel_action: "http://localhost:3000/cancel",
+      custom_filters: {
+        recurring: true,
+        card_brands: ["master"],
+      },
+    },
   });
 
   return (
     <div>
       <button
         onClick={() =>
-          initializePayment(
-            (response) => {
+          initializePayment({
+            onSuccess: (response) => {
               console.log("success", response);
             },
-            () => {
+            onCancel: () => {
               console.log("closed payment");
-            }
-          )
+            },
+            onBankTransferConfirmationPending: (data) => {
+              console.log("onBankTransferConfirmationPending", data);
+            },
+          })
         }
       >
         Pay Now

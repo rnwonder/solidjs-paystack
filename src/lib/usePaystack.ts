@@ -9,7 +9,15 @@ export const usePaystack = () => {
   const [config, setConfig] = createSignal<PaystackProps>({} as PaystackProps);
   const scriptState = usePaystackScript();
 
-  function initializePayment(onSuccess?: cb, onCancel?: () => void) {
+  function initializePayment({
+    onSuccess,
+    onCancel,
+    onBankTransferConfirmationPending,
+  }: {
+    onSuccess?: cb;
+    onCancel?: () => void;
+    onBankTransferConfirmationPending?: (arg: any) => void;
+  }) {
     if (scriptState().error) {
       throw new Error("Unable to load paystack inline script");
     }
@@ -20,6 +28,9 @@ export const usePaystack = () => {
         key: config().publicKey,
         onSuccess: onSuccess ? onSuccess : () => null,
         onCancel: onCancel ? onCancel : () => null,
+        onBankTransferConfirmationPending: onBankTransferConfirmationPending
+          ? onBankTransferConfirmationPending
+          : () => null,
       };
       openPopup(paystackConfig);
     }

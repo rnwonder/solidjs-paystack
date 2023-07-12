@@ -34,13 +34,13 @@ pnpm add solidjs-paystack
   };
   
   // you can call this function anything
-  const onSuccess = (reference) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    console.log(reference);
+  const onSuccess = (response) => {
+    // Implementation for whatever you want to do with response and after success call.
+    console.log(response);
   };
 
   // you can call this function anything
-  const onClose = () => {
+  const onCancel = () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log('closed')
   }
@@ -52,7 +52,7 @@ pnpm add solidjs-paystack
       return (
         <div>
             <button onClick={() => {
-                initializePayment(onSuccess, onClose)
+                initializePayment({ onSuccess, onCancel })
             }}>Paystack Hooks Implementation</button>
         </div>
       );
