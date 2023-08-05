@@ -1,4 +1,4 @@
-export interface PaystackProps {
+export interface PaystackConfig {
   publicKey: string;
   email: string;
   firstname?: string;
